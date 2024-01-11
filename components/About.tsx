@@ -1,9 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { PageInfo } from "@/typings";
+import { urlFor } from "@/sanity";
 
-type Props = {};
+type Props = {
+  pageInfo: PageInfo;
+}
 
-const About = (props: Props) => {
+const About = ({pageInfo}: Props) => {
   return (
     <motion.div
       initial={{
@@ -37,7 +41,7 @@ const About = (props: Props) => {
           once: true,
         }}
         className="mt-10 -mb-20 md:mb-0 flex-shrink-0 w-44 h-44 rounded-full object-cover md:rounded-lg md:w-64 md:h-96 xl:w-[400px] xl:h-[500px]"
-        src="about_img.png"
+        src={urlFor(pageInfo?.profilePic).url()}
       />
 
       <div className="space-y-10 px-0 md:px-10">
@@ -47,20 +51,7 @@ const About = (props: Props) => {
           background
         </h4>
         <p className="text-sm text-justify">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero,
-          voluptate. Facere unde nulla pariatur ipsum, ab perferendis,
-          voluptates, iusto in commodi reiciendis veniam incidunt tempora. Ipsam
-          magni possimus vitae debitis. Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Facere facilis accusamus repudiandae sint ipsum
-          provident nisi explicabo enim exercitationem, autem, perspiciatis
-          quaerat? Veritatis molestiae sequi mollitia dicta debitis. Asperiores,
-          odit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta
-          optio, quos odit commodi dolorum adipisci explicabo. Ducimus corporis
-          debitis tempora sit. Quia doloremque pariatur iure placeat repudiandae
-          ipsam magnam sapiente. Lorem ipsum dolor, sit amet consectetur
-          adipisicing elit. Deserunt laudantium dolorum eligendi vel nisi
-          voluptas autem temporibus, totam odit, ducimus ipsum accusamus vitae
-          rem dicta amet quisquam mollitia consectetur fugiat.
+        {pageInfo?.backgroundInformation}
         </p>
       </div>
     </motion.div>

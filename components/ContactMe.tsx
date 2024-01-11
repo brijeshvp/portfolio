@@ -1,6 +1,7 @@
 import React from "react";
 import { PhoneIcon, MapPinIcon, EnvelopeIcon } from "@heroicons/react/24/solid";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { PageInfo } from "@/typings";
 
 type Inputs = {
   name: string;
@@ -9,9 +10,11 @@ type Inputs = {
   message: string;
 };
 
-type Props = {};
+type Props = {
+  pageInfo: PageInfo
+}
 
-const ContactMe = (props: Props) => {
+const ContactMe = ({ pageInfo }: Props) => {
   const { register, handleSubmit } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = (formData) => {
     window.location.href = `mailto:brijeshpeshvani38@gmail?subject=${formData.subject}&body=Hi, my name is ${formData.name}. ${formData.message} (${formData.email})`;
@@ -35,19 +38,19 @@ const ContactMe = (props: Props) => {
           {/* info-1 - phone */}
           <div className="flex items-center space-x-5 justify-center">
             <PhoneIcon className="text-[#F7AB0A] h-4 w-4 lg:h-7 md:w-7  animate-pulse" />
-            <p className="text-xl lg:text-2xl">+91-8460127398</p>
+            <p className="text-xl lg:text-2xl">{pageInfo?.phoneNumber}</p>
           </div>
 
           {/* info-2 - email */}
           <div className="flex items-center space-x-5 justify-center">
             <EnvelopeIcon className="text-[#F7AB0A] h-4 w-4 lg:h-7 md:w-7 animate-pulse" />
-            <p className="text-xl lg:text-2xl">brijeshpeshvani38@gmail.com</p>
+            <p className="text-xl lg:text-2xl">{pageInfo?.email}</p>
           </div>
 
           {/* info-3 - address */}
           <div className="flex items-center space-x-5 justify-center">
             <MapPinIcon className="text-[#F7AB0A] h-4 w-4 lg:h-7 md:w-7 animate-pulse" />
-            <p className="text-xl lg:text-2xl">Bangalore, Karnataka</p>
+            <p className="text-xl lg:text-2xl">{pageInfo?.address}</p>
           </div>
         </div>
 

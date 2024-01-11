@@ -1,10 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Project } from "@/typings";
+import { urlFor } from "@/sanity";
 
-type Props = {};
+type Props = {
+  projects: Project[];
+};
 
-const Projects = (props: Props) => {
-    const projects = [1,2,3,4,5];
+const Projects = ({ projects }: Props) => {
   return (
     <motion.div
       initial={{
@@ -23,10 +26,8 @@ const Projects = (props: Props) => {
       </h3>
 
       <div className="h-[95%] mt-12 relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 ">
-        {projects?.map((project,i) => (
-          <div
-            className="w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20 md:p-44 h-screen"
-          >
+        {projects?.map((project, i) => (
+          <div className="w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20 md:p-44 h-screen">
             <motion.img
               initial={{
                 y: -300,
@@ -42,7 +43,7 @@ const Projects = (props: Props) => {
               viewport={{
                 once: true,
               }}
-              src="./projects/news-mania-2.0.png"
+              src={urlFor(project?.image).url()}
               alt="Project Img"
               className="h-44 lg:h-64"
             />
@@ -52,23 +53,26 @@ const Projects = (props: Props) => {
               {/* project title */}
               <h4 className="text-xl md:text-2xl lg:text-4xl font-semibold text-center">
                 <span className="underline decoration-[#F7AB0A]/50">
-                  Project {i+1} of {projects.length}:
+                  Project {i + 1} of {projects.length}:
                 </span>{" "}
-                News Mania
+                {project?.title}
               </h4>
 
               {/* tech used */}
               <div className="flex items-center space-x-2 justify-center">
+                {project?.technologies.map((technology) => (
                   <img
                     className="my-2 h-10 w-10 "
-                    src="./project_techstacks/mediastackNewsAPI.jpeg"
+                    key={technology._id}
+                    src={urlFor(technology.image).url()}
                     alt=""
                   />
+                ))}
               </div>
 
               {/* project summary */}
               <p className="text-sm md:text-lg text-center md:text-left">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores repellendus temporibus a recusandae sed non officia incidunt laudantium omnis! Alias iure accusantium quas aperiam consequatur eum laboriosam, harum omnis fugiat?
+              {project?.summary}
               </p>
             </div>
           </div>
