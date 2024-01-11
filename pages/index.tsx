@@ -9,10 +9,26 @@ import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import ContactMe from "@/components/ContactMe";
 import Link from "next/link";
+import { Experience, PageInfo, Project, Skill, Social } from "../typings";
+import { GetStaticProps } from "next";
+import { fetchPageInfo } from "../utils/fetchPageInfo";
+import { fetchExperiences } from "../utils/fetchExperiences";
+import { fetchSkills } from "../utils/fetchSkills";
+import { fetchProjects } from "../utils/fetchProjects";
+import { fetchSocials } from "../utils/fetchSocials";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+// type definitions used in getStaticProps fn to fetch all sanity data as props
+type Props = {
+  pageInfo: PageInfo;
+  experiences: Experience[];
+  skills: Skill[];
+  projects: Project[];
+  socials: Social[];
+}
+
+export default function Home({ pageInfo, experiences, projects, skills, socials }: Props) {
   return (
     <main className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
       <Head>
@@ -67,4 +83,29 @@ export default function Home() {
       </footer>
     </main>
   );
+}
+
+// Static-site Generation(SSG) with Incremental Static Regeneration(ISR)
+export const getStaticProps: GetStaticProps<Props> = async () =>{
+  // get data from backend using helper fn we made in utils folder for fetching data to front-end
+  const pageInfo: PageInfo = await fetchPageInfo();
+  const experiences: Experience[] = await fetchExperiences();
+  const skills: Skill[] = await fetchSkills();
+  const projects: Project[] = await fetchProjects();
+  const socials: Social[] = await fetchSocials();
+
+  // now all data is prepared at server before hand(static-site - bcoz of this getStaticProps fn definition), just return to our webpage(index.tsx) in the form of props
+  return{
+    props: {
+      pageInfo,
+      experiences,
+      skills,
+      projects,
+      socials,
+    },
+    // Next.js will attemp to re-generate the page: 
+    // when a request comes in
+    // at most once every 10 seconds
+    revalidate: 10,
+  }
 }
