@@ -29,10 +29,11 @@ type Props = {
 }
 
 export default function Home({ pageInfo, experiences, projects, skills, socials }: Props) {
+  const websiteTitle = `${pageInfo?.name} - Portfolio`
   return (
     <main className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
       <Head>
-        <title>{pageInfo?.name} - Portfolio</title>
+        <title>{websiteTitle}</title>
       </Head>
 
       <Header socials={socials} />
