@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Project } from "@/typings";
 import { urlFor } from "@/sanity";
+import Link from "next/link";
 
 type Props = {
   projects: Project[];
@@ -27,7 +28,10 @@ const Projects = ({ projects }: Props) => {
 
       <div className="h-[95%] mt-12 relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80 ">
         {projects?.map((project, i) => (
-          <div key={project._id} className="w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20 md:p-44 h-screen">
+          <div
+            key={project._id}
+            className="w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20 md:p-44 h-screen"
+          >
             <motion.img
               initial={{
                 y: -300,
@@ -49,7 +53,7 @@ const Projects = ({ projects }: Props) => {
             />
 
             {/* project details */}
-            <div className="px-0 md:px-10 max-w-6xl">
+            <div className="px-0 md:px-10 max-w-6xl flex flex-col">
               {/* project title */}
               <h4 className="text-xl md:text-2xl lg:text-4xl font-semibold text-center">
                 <span className="underline decoration-[#F7AB0A]/50">
@@ -72,8 +76,18 @@ const Projects = ({ projects }: Props) => {
 
               {/* project summary */}
               <p className="text-sm md:text-lg text-center md:text-left">
-              {project?.summary}
+                {project?.summary}
               </p>
+
+              {/* Links button */}
+              <div className="flex justify-evenly mt-4">
+                <button className="h-8 bg-[#F7AB0A] px-2 md:px-4 rounded-md text-black font-bold text-sm md:text-md">
+                  <Link href={project?.linkToDocumentation}>Read More</Link>
+                </button>
+                <button className="h-8 bg-[#F7AB0A] px-2 md:px-4 rounded-md text-black font-bold text-sm md:text-md">
+                  <Link href={project?.linkToBuild}>Build Preview</Link>
+                </button>
+              </div>
             </div>
           </div>
         ))}
