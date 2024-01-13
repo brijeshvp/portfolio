@@ -82,10 +82,10 @@ const Projects = ({ projects }: Props) => {
               {/* Links button */}
               <div className="flex justify-evenly mt-4">
                 <button className="h-8 bg-[#F7AB0A] px-2 md:px-4 rounded-md text-black font-bold text-sm md:text-md">
-                  <Link href={project?.linkToDocumentation}>Read More</Link>
+                  <Link href={project?.linkToDocumentation} target="_blank">Read More</Link>
                 </button>
                 <button className="h-8 bg-[#F7AB0A] px-2 md:px-4 rounded-md text-black font-bold text-sm md:text-md">
-                  <Link href={project?.linkToBuild}>Build Preview</Link>
+                  <Link href={project?.linkToBuild} target="_blank">Build Preview</Link>
                 </button>
               </div>
             </div>
