@@ -40,17 +40,17 @@ const About = ({pageInfo}: Props) => {
         viewport={{
           once: true,
         }}
-        className="mt-10 -mb-20 md:mb-0 flex-shrink-0 w-44 h-44 rounded-full object-cover md:rounded-lg md:w-64 md:h-96 xl:w-[400px] xl:h-[500px]"
+        className="mt-10 -mb-20 md:mb-0 flex-shrink-0 w-44 h-44 sm:w-64 sm:h-64 rounded-full object-cover md:rounded-lg md:w-64 md:h-96 xl:w-[400px] xl:h-[500px]"
         src={urlFor(pageInfo?.profilePic).url()}
       />
 
-      <div className="space-y-10 px-0 md:px-10">
-        <h4 className="mt-4 md:mt-0 text-4xl font-semibold">
+      <div className="px-0 md:px-10">
+        <h4 className="text-xl sm:text-3xl mt-4 md:mt-0 md:text-4xl font-semibold mb-2">
           Here is a{" "}
           <span className="underline decoration-[#F7AB0A]/50">little</span>{" "}
           background
         </h4>
-        <p className="text-sm text-justify">
+        <p className="text-xs sm:text-sm text-justify">
         {pageInfo?.backgroundInformation}
         </p>
       </div>
