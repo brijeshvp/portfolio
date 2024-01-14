@@ -1,28 +1,47 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+# Portfolio Website
+
+Welcome to my portfolio website! This website showcases my skills, projects, and experiences. It has been built using Next.js, a React-based framework that enables efficient server-side rendering and a great developer experience.
+
 
 ## Getting Started
+### Prerequisites
+Make sure you have Node.js installed on your machine.
 
-First, run the development server:
+
+## Run Locally
+
+Clone the project
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+  git clone https://github.com/brijeshvp/portfolio.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Go to the project directory
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```bash
+  cd portfolio
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Install dependencies
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```bash
+  npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Start the development server
+
+```bash
+  npm run dev
+```
+
+To start production server
+```bash
+  npm run start
+```
+
+Visit http://localhost:3000 to see my portfolio.
+
 
 ## Learn More
 
@@ -38,3 +57,18 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Features
+
+- Responsive Design: Ensures a seamless experience across various devices and screen sizes.
+- Incremental Static Regeneration(ISR): Utilizes Next.js for efficient Incremental Static Regeneration, optimizing performance and SEO.
+- Sections: Showcases my skills, projects with details like technologies used, description, and links to the builds and repos.
+## Authors
+
+- [@brijeshvp](https://www.github.com/brijeshvp)
+
+Copyright © 2024 Brijesh Peshvani. All rights reserved. 
+
+## Support
+
+Thank you for checking out my portfolio! If you have any questions or suggestions, feel free to reach out!
