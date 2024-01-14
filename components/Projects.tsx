@@ -75,7 +75,7 @@ const Projects = ({ projects }: Props) => {
               </div>
 
               {/* project summary */}
-              <p className="text-sm md:text-lg text-center md:text-left">
+              <p className="text-sm md:text-lg text-center md:text-left 2xl:px-20">
                 {project?.summary}
               </p>
 
