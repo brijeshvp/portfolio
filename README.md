@@ -42,6 +42,11 @@ To start production server
 
 Visit http://localhost:3000 to see my portfolio.
 
+## Features
+
+- Responsive Design: Ensures a seamless experience across various devices and screen sizes.
+- Incremental Static Regeneration(ISR): Utilizes Next.js for efficient Incremental Static Regeneration, optimizing performance and SEO.
+- Sections: Showcases my skills, projects with details like technologies used, description, and links to the builds and repos.
 
 ## Learn More
 
@@ -58,11 +63,6 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-## Features
-
-- Responsive Design: Ensures a seamless experience across various devices and screen sizes.
-- Incremental Static Regeneration(ISR): Utilizes Next.js for efficient Incremental Static Regeneration, optimizing performance and SEO.
-- Sections: Showcases my skills, projects with details like technologies used, description, and links to the builds and repos.
 ## Authors
 
 - [@brijeshvp](https://www.github.com/brijeshvp)
