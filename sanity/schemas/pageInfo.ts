@@ -26,6 +26,12 @@ export default defineType({
         hotspot: true,
       },
     }),
+    // for Download Cv - in hero section
+    defineField({
+      name: 'resume',
+      title: 'Resume',
+      type: 'file',
+    }),
     // for about info
     defineField({
       name: 'backgroundInformation',

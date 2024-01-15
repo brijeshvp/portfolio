@@ -26,6 +26,7 @@ export interface PageInfo extends SanityBody{
     name: string;
     phoneNumber: string;
     profilePic: Image;
+    resumeURL: string;
 }
 
 // for technologies known and to be used in work experience section as well
