@@ -1,18 +1,21 @@
-import {groq} from "next-sanity"
+import { groq } from "next-sanity";
 import { sanityClient } from "../sanity";
 import { PageInfo } from "../typings";
 
 // create GROQ query
 const query = groq`
-    *[_type == "pageInfo"][0]
-`
+*[_type == "pageInfo"][0]{
+    ...,
+    "resumeURL": resume.asset->url
+  }
+`;
 
 type Data = {
-    pageInfo: PageInfo
-}
+  pageInfo: PageInfo;
+};
 
 export const fetchPageInfo = async () => {
-    const pageInfo : PageInfo = await sanityClient.fetch(query);
+  const pageInfo: PageInfo = await sanityClient.fetch(query);
 
-    return pageInfo;
-}
+  return pageInfo;
+};

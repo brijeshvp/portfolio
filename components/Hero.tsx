@@ -19,6 +19,8 @@ const Hero = ({ pageInfo }: Props) => {
     loop: true,
     delaySpeed: 2000,
   });
+
+  const renamedResume = `${pageInfo?.resumeURL}?dl=brijesh-peshvani_resume.pdf`
   return (
     <div className="h-screen flex flex-col items-center justify-center space-y-8 text-center overflow-hidden pt-20">
       <BackgroundCircles />
@@ -41,6 +43,7 @@ const Hero = ({ pageInfo }: Props) => {
           <Link href="#experience"><button className='heroButton'>Experience</button></Link>
           <Link href="#skills"><button className='heroButton'>Skills</button></Link>
           <Link href="#projects"><button className='heroButton'>Projects</button></Link>
+          {/* <Link href={renamedResume} target="_blank"><button className='heroButton'>Resume</button></Link> */}
         </div>
       </div>
     </div>
